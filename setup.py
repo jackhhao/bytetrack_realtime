@@ -7,7 +7,7 @@ ext_modules = [
     Extension(
         "cython_bbox",
         ["bytetrack_realtime/utils/cython_bbox.pyx"],
-        extra_compile_args=["-Wno-cpp", "-Wno-unused-function"],
+        extra_compile_args={'gcc': ['/Qstd=c99']},
         include_dirs=[np.get_include()],
     )
 ]
@@ -19,6 +19,6 @@ setup(
     ext_modules=ext_modules,
     install_requires=[
         'cython',
-        "lap"
+        "lapx"
     ]
 )
